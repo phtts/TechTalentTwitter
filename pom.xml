@@ -14,7 +14,7 @@
 	<name>TechTalentTwitter</name>
 	<description>Duplicates the functionality of Twitter</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

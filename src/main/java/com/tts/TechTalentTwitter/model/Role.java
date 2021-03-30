@@ -1,3 +1,5 @@
+package com.tts.TechTalentTwitter.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,4 +23,11 @@ public class Role {
     @Column(name = "role_id")
     private Long id;
     private String role;
+	
+    public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

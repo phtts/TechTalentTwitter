@@ -1,9 +1,11 @@
 package com.tts.TechTalentTwitter.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.management.relation.Role;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,12 +52,12 @@ public class User {
     @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
     private String username;
 
-    @Length(min = 5, message = "Your password must have at least 5 characters")
+	@Length(min = 5, message = "Your password must have at least 5 characters")
     @NotEmpty(message = "Please provide a password")
     @JsonProperty(access = Access.WRITE_ONLY)
     private String password;
 
-    @NotEmpty(message = "Please provide your first name")
+	@NotEmpty(message = "Please provide your first name")
     private String firstName;
 
     @NotEmpty(message = "Please provide your last name")
@@ -69,13 +71,55 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
+	
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "follower_id"))
     private List<User> followers;
 
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
+
+    //my get set additions
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+	
+    public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(HashSet<Role> hashSet) {
+		this.roles = hashSet;
+	}
+	
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<User> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(List<User> followers) {
+		this.followers = followers;
+	}
+
 
     // Use this code if your lombok is not working:
     // public Long getId() {
