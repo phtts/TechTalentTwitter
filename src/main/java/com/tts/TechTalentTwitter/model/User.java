@@ -120,6 +120,9 @@ public class User {
 		this.followers = followers;
 	}
 
+    public List<User> getFollowing() {
+    return following;
+    }
 
     // Use this code if your lombok is not working:
     // public Long getId() {
