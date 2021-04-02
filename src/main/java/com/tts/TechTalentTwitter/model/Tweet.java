@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.swing.text.html.HTML.Tag;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -54,6 +53,23 @@ public class Tweet {
 
 	@CreationTimestamp
 	private Date createdAt;
+	
+	//my added constructors
+	public String getMessage() {
+	return message;
+	}
+	
+	public void setTags(List<Tag> tags) {
+	this.tags = tags;
+	}
+
+	public void setMessage(String message) {
+	this.message = message;
+	}
+	
+	public void setUser(User user) {
+	this.user = user;
+	}
 
 	// Use the code below if your lombok is not working:
 	// public Long getId() {
@@ -64,9 +80,9 @@ public class Tweet {
 	// return user;
 	// }
 
-	public void setUser(User user) {
-	this.user = user;
-	}
+	// public void setUser(User user) {
+	// this.user = user;
+	// }
 
 	// public List<Tag> getTags() {
 	// return tags;

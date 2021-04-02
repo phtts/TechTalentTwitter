@@ -11,12 +11,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
